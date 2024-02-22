@@ -8,7 +8,6 @@ function Todo(){
     const [todo, setTodo] = useState("");
     const [todos, setTodos] = useState([]);
 
-
     useEffect(() => {
         const fetchTodos = async () => {
             try {
@@ -30,8 +29,12 @@ function Todo(){
                 console.error("Error fetching todos: ", error);
             }
         };
+
         fetchTodos();
+        
     },[])
+
+
     const addTodo = async (e) => {
         e.preventDefault();
         
@@ -47,30 +50,7 @@ function Todo(){
             console.error("Error adding document: ", error);
         }
     };
-/*
-    async function fetchTodos(){
-        try {
 
-            const q = query(collection(db, 'todos'), orderBy('timeStamp'));
-            const querySnapshot = await getDocs(q);
-
-            const fetchedTodos = [];
-            querySnapshot.forEach((doc) => {
-                fetchedTodos.push({ id: doc.id, ...doc.data() });
-            });
-
-            setTodos(fetchedTodos);
-
-        } catch (error) {
-            console.error("Error fetching todos: ", error);
-        }
-    }
-
-    useEffect(() => {
-        fetchTodos();
-    }, [triggerRerender]); 
-
-*/
     return (
         <div class = "textWrapper">
             <form onSubmit={addTodo}>
