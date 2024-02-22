@@ -1,5 +1,6 @@
 {
   "name": "chattime",
+  "homepage": "https://chat-time-bd554.web.app/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
