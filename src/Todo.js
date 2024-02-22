@@ -41,7 +41,7 @@ function Todo(){
 
 
     return (
-        <div>
+        <div class = "textWrapper">
             <form onSubmit={addTodo}>
                 <input
                     type="text"
@@ -51,11 +51,11 @@ function Todo(){
                 />
                 <button type="submit">Add</button>
             </form>
-            <ol>
+            <div>
                 {todos.map((todo) => (
-                    <li key={todo.id}>{todo.todo}</li>
+                    <p key={todo.id}>{todo.todo}</p>
                 ))}
-            </ol>
+            </div>
         </div>
     );
 }
