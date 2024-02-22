@@ -1,6 +1,6 @@
 import "./App.css";
 import React, { useState, useEffect } from 'react';
-import { collection, addDoc, serverTimestamp, query, orderBy, onSnapshot} from "firebase/firestore";
+import { collection, addDoc, serverTimestamp, query, orderBy, onSnapshot, limit} from "firebase/firestore";
 import { db } from './firebase'; // Import the initialized Firebase app
 
 function Todo(){
@@ -12,7 +12,7 @@ function Todo(){
         const fetchTodos = async () => {
             try {
     
-                const q = query(collection(db, 'todos'), orderBy('timeStamp'));
+                const q = query(collection(db, 'todos'), orderBy('timeStamp','desc'),limit(15));
                 const unsub = onSnapshot(q, (querySnapshot) => {
     
                 const fetchedTodos = [];
@@ -20,7 +20,7 @@ function Todo(){
                     fetchedTodos.push({ id: doc.id, ...doc.data() });
                 });
     
-                setTodos(fetchedTodos);
+                setTodos(fetchedTodos.reverse());
             });
 
             return() => unsub();
@@ -31,7 +31,7 @@ function Todo(){
         };
 
         fetchTodos();
-        
+
     },[])
 
 
