@@ -1,6 +1,6 @@
 import "./App.css";
 import React, { useState, useEffect } from 'react';
-import { collection, addDoc, getDocs } from "firebase/firestore";
+import { collection, addDoc, getDocs, serverTimestamp, query, orderBy } from "firebase/firestore";
 import { db } from './firebase'; // Import the initialized Firebase app
 
 function Todo(){
@@ -13,7 +13,7 @@ function Todo(){
         
         try {
             const docRef = await addDoc(collection(db, "todos"), {
-                todo: todo,
+                message: todo, timeStamp: serverTimestamp()
             });
 
             setTodos([...todos, { id: docRef.id, todo: todo }]);
@@ -25,7 +25,9 @@ function Todo(){
 
     async function fetchTodos(){
         try {
-            const querySnapshot = await getDocs(collection(db, "todos"));
+
+            const q = query(collection(db, 'todos'), orderBy('timeStamp'));
+            const querySnapshot = await getDocs(q);
 
             const newData = querySnapshot.docs.map((doc) => ({...doc.data(), id: doc.id }));
 
@@ -52,8 +54,8 @@ function Todo(){
                 <button type="submit">Add</button>
             </form>
             <div>
-                {todos.map((todo) => (
-                    <p key={todo.id}>{todo.todo}</p>
+                {todos.map((message) => (
+                    <p key={message.id}>{message.message}</p>
                 ))}
             </div>
         </div>
