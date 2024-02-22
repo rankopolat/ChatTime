@@ -1,6 +1,6 @@
 import "./App.css";
 import React, { useState, useEffect } from 'react';
-import { collection, addDoc, getDocs, serverTimestamp, query, orderBy } from "firebase/firestore";
+import { collection, addDoc, serverTimestamp, query, orderBy, onSnapshot} from "firebase/firestore";
 import { db } from './firebase'; // Import the initialized Firebase app
 
 function Todo(){
@@ -8,6 +8,30 @@ function Todo(){
     const [todo, setTodo] = useState("");
     const [todos, setTodos] = useState([]);
 
+
+    useEffect(() => {
+        const fetchTodos = async () => {
+            try {
+    
+                const q = query(collection(db, 'todos'), orderBy('timeStamp'));
+                const unsub = onSnapshot(q, (querySnapshot) => {
+    
+                const fetchedTodos = [];
+                querySnapshot.forEach((doc) => {
+                    fetchedTodos.push({ id: doc.id, ...doc.data() });
+                });
+    
+                setTodos(fetchedTodos);
+            });
+
+            return() => unsub();
+    
+            } catch (error) {
+                console.error("Error fetching todos: ", error);
+            }
+        };
+        fetchTodos();
+    },[])
     const addTodo = async (e) => {
         e.preventDefault();
         
@@ -18,20 +42,25 @@ function Todo(){
 
             setTodos([...todos, { id: docRef.id, todo: todo }]);
             setTodo(""); // Clear input field after adding todo
+            
         } catch (error) {
             console.error("Error adding document: ", error);
         }
     };
-
+/*
     async function fetchTodos(){
         try {
 
             const q = query(collection(db, 'todos'), orderBy('timeStamp'));
             const querySnapshot = await getDocs(q);
 
-            const newData = querySnapshot.docs.map((doc) => ({...doc.data(), id: doc.id }));
+            const fetchedTodos = [];
+            querySnapshot.forEach((doc) => {
+                fetchedTodos.push({ id: doc.id, ...doc.data() });
+            });
 
-            setTodos(newData);
+            setTodos(fetchedTodos);
+
         } catch (error) {
             console.error("Error fetching todos: ", error);
         }
@@ -39,9 +68,9 @@ function Todo(){
 
     useEffect(() => {
         fetchTodos();
-    }, []); 
+    }, [triggerRerender]); 
 
-
+*/
     return (
         <div class = "textWrapper">
             <form onSubmit={addTodo}>
