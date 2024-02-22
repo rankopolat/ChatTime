@@ -12,6 +12,11 @@ jobs:
     if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
     runs-on: ubuntu-latest
     steps:
+
+      - name: Install Firebase
+        run: npm install firebase
+
+        
       - uses: actions/checkout@v4
       - run: npm ci && npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0

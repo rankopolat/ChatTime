@@ -10,6 +10,9 @@ jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Install Firebase
+        run: npm install firebase
+
       - uses: actions/checkout@v4
       - run: npm ci && npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
