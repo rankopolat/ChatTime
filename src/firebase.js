@@ -3,7 +3,6 @@ import { getAnalytics } from "firebase/analytics";
 import { getFirestore } from "firebase/firestore";
 
 const apiKey = process.env.REACT_APP_FIREBASE_API_KEY;
-console.log(process.env)
 
 const firebaseConfig = {
   apiKey: apiKey,
