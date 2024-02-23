@@ -129,7 +129,7 @@ function ChatBubble(props){
 
     return(
         <div className={`chatMessage ${messageCheck}`}>
-            <img src={pic || 'https://api.adorable.io/avatars/23/abott@adorable.png'} alt = ""/>
+            <img src={pic} alt = ""/>
             <p>{message}</p>
         </div>
     )
