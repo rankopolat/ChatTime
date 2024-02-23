@@ -1,3 +1,7 @@
+body{
+    background-color: rgb(84, 196, 153);
+}
+
 ::-webkit-scrollbar {
     width: 8px;
   }
@@ -7,7 +11,9 @@
     align-items: center;
     margin: auto;
     width: 50%;
-    height: 80vh;
+    height: 90vh;
+    background-color: black;
+ 
 }
 
 .chatArea{
@@ -16,7 +22,10 @@
     overflow-x: hidden;
     overflow-wrap: break-word;
     height: 80vh;
-    background-color: rgb(216, 216, 216);
+    background-color: white;
+    border-radius: 50px;
+    border-top: 100px;
+    margin:20px;
 
 }
 
@@ -26,58 +35,63 @@
 
     display: flex;
     align-items: center;
-    overflow-wrap: break-word;
-    max-width: 100%;
     
+}
+
+.chatMessage.s{
+    flex-direction: row-reverse;
 }
 
 .chatMessage.s p{
 
-    background-color: rgb(148, 48, 135);
-    margin-left: 20px;
+    background-color: lightgreen;
     border-radius: 20px;
     font-size: 20px;
-    font-weight: bold;
-    height: auto;
-    padding: 10px;
-    max-width: 80%;
-
-}
-
-.chatMessage.r p{
-
-    background-color: rgb(158, 88, 42);
-    margin-right: 20px;
-    border-radius: 20px;
-    font-size: 20px;
-    font-weight: bold;
-    height: auto;
-    padding: 10px;
+    font-weight: 100;
+    padding: 8px;
     max-width: 80%;
     align-self: flex-end;
 
 }
 
+.chatMessage.r p {
+    background-color: lightblue;
+    border-radius: 20px;
+    font-size: 20px;
+    font-weight:100;
+    height: auto;
+    padding: 8px;
+    max-width: 80%;
+}
+
 .chatMessage img{
-    margin-left: 20px;
+    margin: 10px; 
     border-radius: 50%;
     height: 30px;
     width: 30px;
 }
 
-
-.messageForm{
-   
+.messageButton{
+    height:5vh;
+    background-color: black;
+    justify-content: center;
     display: flex;
     align-items: center;
+    border-radius: 10px;
+}
+.messageForm{
 
+    margin: 20px;
+    width: 60%;
+    margin-bottom: 40px;
 }
 
 .messageForm #inputArea{
-    margin-top: 10px;
+
     width:100%;
     height: 25px;
     border-radius: 10px;
+
 }
 
 
@@ -96,7 +110,11 @@
     display: inline-block;
 }
 
-.sign-out{
-    
+.buttonWrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 5vh;
+    background-color: rgb(78, 88, 216)
 }
 

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { collection, addDoc, serverTimestamp, query, orderBy, onSnapshot, limit} from "firebase/firestore";
 import { db, auth } from '../firebase';
 import ChatBubble from "./ChatBubble"
+import SignOut from './SignOut';
 
 
 function ChatApp(){
@@ -72,14 +73,15 @@ function ChatApp(){
     return (
     <>
         <div class = "textWrapper" >
-
-            <main class = "chatArea" ref = {containerRef}>
-                
+            <div class = "buttonWrapper">
+                <SignOut/>
+            </div>
+            <div class = "chatArea" ref = {containerRef}>
                 {messages.map( object => 
                     <ChatBubble key={object.id} message = {object} />
                 )}
 
-            </main>
+            </div>
             
             <div class = "messageButton">
                 <form onSubmit={createMessage} class= "messageForm">
