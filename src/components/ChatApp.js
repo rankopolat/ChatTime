@@ -84,8 +84,11 @@ function ChatApp(){
             </div>
             
             <div class = "messageButton">
+
                 <form onSubmit={createMessage} class= "messageForm">
-                    <input id = "inputArea" type="text" value={msg} onChange={(e) => setMsg(e.target.value)} placeholder="Add Todo"/>
+
+                    <input id = "inputArea" type="text" value={msg} onChange={(e) => setMsg(e.target.value)} placeholder="Lets chat!"/>
+                    <button class="input-button">Send</button>
                     
                 </form>
             </div>
