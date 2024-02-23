@@ -49,11 +49,6 @@ function ChatApp(){
         }
     }, [messages]);
 
-
-    useEffect(() => {
-        containerRef.current.scrollIntoView({ behavior: 'smooth' }); // Scroll to bottom when component mounts
-    }, []);
-
     const createMessage = async (e) => {
 
         e.preventDefault(); //Disable auto refresh when message is created
