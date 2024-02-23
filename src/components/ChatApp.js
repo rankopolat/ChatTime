@@ -28,6 +28,7 @@ function ChatApp(){
     
                 setMessageArray(fetchedTodos.reverse()); //Setting the array to the Fetched snapShot
                
+               
             });
 
             return() => unsub();
@@ -42,6 +43,16 @@ function ChatApp(){
 
     },[])
 
+    useEffect(() => {
+        if (containerRef.current) {
+            containerRef.current.scrollTop = containerRef.current.scrollHeight;
+        }
+    }, [messages]);
+
+
+    useEffect(() => {
+        containerRef.current.scrollIntoView({ behavior: 'smooth' }); // Scroll to bottom when component mounts
+    }, []);
 
     const createMessage = async (e) => {
 
@@ -56,7 +67,7 @@ function ChatApp(){
             });
 
             setMsg(""); // Clear input field after adding msg
-            containerRef.current.scrollIntoView({ behavior: 'smooth' }); //Scroll to bottom of chat area after message created
+        
             
         } catch (error) {
             console.error("Error adding message into document: ", error);
@@ -65,24 +76,20 @@ function ChatApp(){
 
     return (
     <>
-        <div class = "textWrapper">
+        <div class = "textWrapper" >
 
-            <main class = "chatArea">
+            <main class = "chatArea" ref = {containerRef}>
                 
                 {messages.map( object => 
                     <ChatBubble key={object.id} message = {object} />
                 )}
 
-                <span ref = {containerRef}></span>
-            
             </main>
             
-        
             <div class = "messageButton">
                 <form onSubmit={createMessage} class= "messageForm">
                     <input id = "inputArea" type="text" value={msg} onChange={(e) => setMsg(e.target.value)} placeholder="Add Todo"/>
                     
-
                 </form>
             </div>
 
