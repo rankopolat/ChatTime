@@ -5,18 +5,18 @@ import ChatBubble from "./ChatBubble"
 import SignOut from './SignOut';
 import all from '../images/all.png';
 
-function ChatApp({ defaultDatabase = "messages" }) {
+function ChatApp() {
 
     const containerRef = useRef(); // To enable scroll when a message has been added
 
     const [msg, setMsg] = useState(""); // Current Message
     const [messages, setMessageArray] = useState([]); // Array of fetched messages
 
-    const [database, setDatabase] = useState(defaultDatabase); // Database name state
+    const [database, setDatabase] = useState("messages"); // Database name state default "messages"
     const { uid, photoURL } = auth.currentUser; // Grab current logged-in user's info
 
     useEffect(() => {
-        
+
         const fetchMessages = async () => {
             try {
                 const q = query(collection(db, database), orderBy('timeStamp', 'desc'), limit(30));
@@ -87,7 +87,7 @@ function ChatApp({ defaultDatabase = "messages" }) {
                 <div className='chatNavBar'></div>
                 <div className="chatArea" ref={containerRef}>
                     {messages.map(object =>
-                        <ChatBubble key={object.id} message={object} />
+                        <ChatBubble message={object} />
                     )}
                 </div>
                 <div className="messageButton">
