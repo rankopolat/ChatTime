@@ -7,7 +7,7 @@ function SignOut() {
     return auth.currentUser && (
         <div className = "signOutWrapper">
             <p>logout</p>
-            <img src = {logout} className='sign-out' onClick={() => auth.signOut()}/>
+            <img src = {logout} className='sign-out' onClick={() => auth.signOut()} alt =""/>
         </div>
     )
 }

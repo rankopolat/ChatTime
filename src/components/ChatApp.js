@@ -111,7 +111,7 @@ function ChatApp() {
                 <div className="messageButton">
                     <form onSubmit={createMessage} className="messageForm">
                         <input id="inputArea" type="text" value={msg} onChange={(e) => setMsg(e.target.value)} placeholder="Let's chat!" />
-                        <img src={send} className='input-button'/>
+                        <img src={send} className='input-button' alt=""/>
                     </form>
                 </div>
             </div>
