@@ -4,6 +4,7 @@ import { db, auth } from '../firebase';
 import ChatBubble from "./ChatBubble"
 import SignOut from './SignOut';
 import all from '../images/all.png';
+import send from '../images/send.png';
 
 function ChatApp() {
 
@@ -95,12 +96,12 @@ function ChatApp() {
                 <div className="messageButton">
                     <form onSubmit={createMessage} className="messageForm">
                         <input id="inputArea" type="text" value={msg} onChange={(e) => setMsg(e.target.value)} placeholder="Let's chat!" />
-                        <button className="input-button">Send</button>
+                        <img src={send} className='input-button'/>
                     </form>
                 </div>
             </div>
         </div>
-        
+
     );
 }
 

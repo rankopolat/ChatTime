@@ -115,12 +115,11 @@ body{
 .input-button {
 
     position: absolute;
-    top: 20%;
+    top:8%;
     right: 10px;
     height: 50%;
     padding: 10px 10px;
     border: none;
-    background-color: rgb(230, 173, 173);
     cursor: pointer;
     border-radius: 10px;
   }
