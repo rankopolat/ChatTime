@@ -23,13 +23,25 @@ body{
     
     width: 100%;
     height: 100%;
-    background-color: red;
+
 }
 
-.chatNavBar{
+.chatNavBarWrapper{
+
     background-color: rgb(168, 153, 223);
     height: 10%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
 }
+
+.chatNavBarWrapper p{
+    font-weight: bold;
+    font-size: larger;
+}
+
+
 
 .chatArea{
 
@@ -159,11 +171,29 @@ body{
     align-items: center;
     justify-content: right;
     height: 10%;
-    background-color: rgb(74, 24, 116)
-}
+    background-color: rgb(74, 24, 116);
+    overflow:hidden;
 
-.sign-out{
+}
+.signOutWrapper{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    height: 50%;
+    width: auto;
+    background-color: rgb(74, 24, 116);
+    cursor: pointer;
+}
+.signOutWrapper p{
+    font-weight: bold;
+    margin-right: 10px;
+}
+.signOutWrapper .sign-out{
     margin-right: 20px;
+    height: 50%;
+}
+.signOutWrapper:hover{
+    background-color: rgb(122, 141, 202);
 }
 
 /* --- */
@@ -181,9 +211,11 @@ body{
     overflow: hidden;
     display: flex;
     align-items: center;
+
 }
-.chatRoomsWrapper div:hover{
-    background-color: #b0d9f5;
+.ChatDiv:hover{
+    background-color: #b0d9f5 !important;
+    cursor: pointer;
 }
 .chatRoomsWrapper img{
     margin-left: 20px;

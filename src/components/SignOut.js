@@ -1,10 +1,14 @@
 import React from 'react';
 import { auth } from '../firebase';
+import logout from '../images/logout.png';
 
 
 function SignOut() {
     return auth.currentUser && (
-        <button className="sign-out" onClick={() => auth.signOut()}>Sign Out</button>
+        <div className = "signOutWrapper">
+            <p>logout</p>
+            <img src = {logout} className='sign-out' onClick={() => auth.signOut()}/>
+        </div>
     )
 }
 

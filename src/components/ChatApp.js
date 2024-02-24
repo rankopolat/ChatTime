@@ -6,6 +6,19 @@ import SignOut from './SignOut';
 import all from '../images/all.png';
 import send from '../images/send.png';
 
+
+function toggleHover(selected){
+
+    console.log(selected);
+    var divs = document.querySelectorAll(".ChatDiv");
+
+    divs.forEach(function(div) {
+        div.style.backgroundColor = "";
+    });
+
+    selected.style.backgroundColor = "#b0d9f5";
+}
+
 function ChatApp() {
 
     const containerRef = useRef(); // To enable scroll when a message has been added
@@ -67,19 +80,19 @@ function ChatApp() {
                     <SignOut />
                 </div>
                 <div className='chatRoomsWrapper'>
-                    <div className='allChatDiv' onClick={() => setDatabase("messages")}>
+                    <div className='ChatDiv' onClick={(e) => {setDatabase("messages"); toggleHover(e.currentTarget);}}>
                         <img src={all} alt="All Chat" />
                         <p>All Chat</p>
                     </div>
-                    <div className='animalsChatDiv' onClick={() => setDatabase("animals")}>
+                    <div className='ChatDiv' onClick={(e) => {setDatabase("animals"); toggleHover(e.currentTarget);}}>
                         <img src={all} alt="Animals Chat" />
                         <p>Animals Chat</p>
                     </div>
-                    <div className='gamesChatDiv' onClick={() => setDatabase("games")}>
+                    <div className='ChatDiv' onClick={(e) => {setDatabase("games"); toggleHover(e.currentTarget);}}>
                         <img src={all} alt="Games Chat" />
                         <p>Games Chat</p>
                     </div>
-                    <div className='sportsChatDiv' onClick={() => setDatabase("sports")}>
+                    <div className='ChatDiv' onClick={(e) => {setDatabase("sports"); toggleHover(e.currentTarget);}}>
                         <img src={all} alt="Sports Chat" />
                         <p>Sports Chat</p>
                     </div>
@@ -87,12 +100,14 @@ function ChatApp() {
             </div>
 
             <div className='chatWrapper'>
-                <div className='chatNavBar'></div>
-                    <div className="chatArea" ref={containerRef}>
-                        {messages.map(object =>
-                            <ChatBubble message={object} />
-                        )}
-                    </div>
+                <div className='chatNavBarWrapper'>
+                    <p>Taijis Chat Rooms</p>
+                </div>
+                <div className="chatArea" ref={containerRef}>
+                    {messages.map(object =>
+                        <ChatBubble message={object} />
+                    )}
+                </div>
                 <div className="messageButton">
                     <form onSubmit={createMessage} className="messageForm">
                         <input id="inputArea" type="text" value={msg} onChange={(e) => setMsg(e.target.value)} placeholder="Let's chat!" />
