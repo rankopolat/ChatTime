@@ -1,5 +1,5 @@
 body{
-    background-color: rgb(199, 206, 214);
+    background-color: rgb(103, 162, 230);
 }
 
 ::-webkit-scrollbar {
@@ -7,14 +7,28 @@ body{
   }
 
 .textWrapper{
-    
-    justify-content: center;
-    align-items: center;
+
+    overflow: hidden;
     margin: auto;
-    width: 50%;
-    height: 90vh;
-    background-color: black;
+    margin-top: 80px;
+    width: 70%;
+    height: 80vh;
+    border-radius: 15px;
+    display: flex;
  
+}
+
+
+.chatWrapper{
+    
+    width: 100%;
+    height: 100%;
+    background-color: red;
+}
+
+.chatNavBar{
+    background-color: rgb(168, 153, 223);
+    height: 10%;
 }
 
 .chatArea{
@@ -22,11 +36,8 @@ body{
     overflow: scroll;
     overflow-x: hidden;
     overflow-wrap: break-word;
-    height: 80vh;
-    background-color: white;
-    border-radius: 50px;
-    border-top: 100px;
-    margin:20px;
+    height: 82%;
+    background-color: rgb(196, 205, 224);
 
 }
 
@@ -75,47 +86,47 @@ body{
 
 /*Button*/
 .messageButton{
-    height:5vh;
-    background-color: black;
-    justify-content: center;
-    display: flex;
-    align-items: center;
-    border-radius: 10px;
+    
+    height: 10%;
 }
-
 
 .messageForm{
 
     position: relative;
     bottom: 10px;
-}
+    height: 100%;
 
+
+}
 
 .messageForm input[type="text"]{
 
-    height: 30px;
-    border-radius: 10px;
     padding-right: 50px;
-    width:300px
+    width:100%;
+    border:none;
+    height: 95%;
    
+}
 
+#inputArea:focus {
+    outline: none;
 }
 
 .input-button {
+
     position: absolute;
-    top: 2px;
-    right: 0;
-    height: 90%;
+    top: 20%;
+    right: 10px;
+    height: 50%;
     padding: 10px 10px;
     border: none;
-    background-color: lightblue;
+    background-color: rgb(230, 173, 173);
     cursor: pointer;
     border-radius: 10px;
   }
 
-  /* Optional styling */
 .input-button:hover {
-    background-color: #aaa;
+    background-color: #5e187a;
   }
 
 /* Sign in CSS */
@@ -133,11 +144,54 @@ body{
     display: inline-block;
 }
 
-.buttonWrapper{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 5vh;
-    background-color: rgb(78, 88, 216)
+
+
+/* ALL FOR SIDE CHAT ROOM WRAPPER*/
+
+.sideNav{
+    height: 100%;
+    background-color: black;
+    width: 45vh;
 }
 
+.buttonWrapper{
+
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    height: 10%;
+    background-color: rgb(74, 24, 116)
+}
+
+.sign-out{
+    margin-right: 20px;
+}
+
+/* --- */
+
+
+/** CHAT ROOMS **/
+
+.chatRoomsWrapper{
+    height: 100%;
+    width: 100%;
+    background-color: rgb(122, 141, 202);
+}
+.chatRoomsWrapper div{
+    height: 10%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+.chatRoomsWrapper div:hover{
+    background-color: #b0d9f5;
+}
+.chatRoomsWrapper img{
+    margin-left: 20px;
+    height: 80%;
+}
+.chatRoomsWrapper p{
+    margin-left: 10px;
+    font-size: 20px;
+    font-weight:bold;
+}

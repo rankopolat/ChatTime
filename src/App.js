@@ -13,7 +13,7 @@ function App(){
         <div className="App">
 
           <section>
-            {user ? <ChatApp /> : <SignIn />}
+            {user ? <ChatApp/> : <SignIn />}
           </section>
     
         </div>
