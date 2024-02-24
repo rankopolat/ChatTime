@@ -59,6 +59,7 @@ function ChatApp() {
     };
 
     return (
+
         <div className="textWrapper">
             <div className="sideNav">
                 <div className="buttonWrapper">
@@ -83,13 +84,14 @@ function ChatApp() {
                     </div>
                 </div>
             </div>
+
             <div className='chatWrapper'>
                 <div className='chatNavBar'></div>
-                <div className="chatArea" ref={containerRef}>
-                    {messages.map(object =>
-                        <ChatBubble message={object} />
-                    )}
-                </div>
+                    <div className="chatArea" ref={containerRef}>
+                        {messages.map(object =>
+                            <ChatBubble message={object} />
+                        )}
+                    </div>
                 <div className="messageButton">
                     <form onSubmit={createMessage} className="messageForm">
                         <input id="inputArea" type="text" value={msg} onChange={(e) => setMsg(e.target.value)} placeholder="Let's chat!" />
@@ -98,6 +100,7 @@ function ChatApp() {
                 </div>
             </div>
         </div>
+        
     );
 }
 
