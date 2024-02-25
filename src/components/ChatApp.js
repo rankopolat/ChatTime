@@ -16,7 +16,7 @@ function toggleHover(selected){
         div.style.backgroundColor = "";
     });
 
-    selected.style.backgroundColor = "#b0d9f5";
+    selected.style.backgroundColor = "grey";
 }
 
 function ChatApp() {
@@ -26,7 +26,7 @@ function ChatApp() {
     const [msg, setMsg] = useState(""); // Current Message
     const [messages, setMessageArray] = useState([]); // Array of fetched messages
 
-    const [database, setDatabase] = useState("messages"); // Database name state default "messages"
+    const [database, setDatabase] = useState(""); // Database name state default "messages"
     const { uid, photoURL } = auth.currentUser; // Grab current logged-in user's info
 
     useEffect(() => {
@@ -99,22 +99,36 @@ function ChatApp() {
                 </div>
             </div>
 
-            <div className='chatWrapper'>
-                <div className='chatNavBarWrapper'>
-                    <p>Taijis Chat Rooms</p>
-                </div>
-                <div className="chatArea" ref={containerRef}>
-                    {messages.map(object =>
-                        <ChatBubble message={object} />
-                    )}
-                </div>
-                <div className="messageButton">
-                    <form onSubmit={createMessage} className="messageForm">
-                        <input id="inputArea" type="text" value={msg} onChange={(e) => setMsg(e.target.value)} placeholder="Let's chat!" />
-                        <img src={send} className='input-button' alt=""/>
-                    </form>
-                </div>
-            </div>
+            <section className='chatWrapper'>
+
+                {database === "" ?  
+
+                    <div className='unselectedChat'>
+                        <p>Please Select A Chat Group</p>
+                    </div> 
+                    
+                    : 
+
+                    <div className='chatWrapper'>                                  
+                            <div className='chatNavBarWrapper'>
+                                <p>Taijis Chat Rooms</p>
+                            </div>
+                            <div className="chatArea" ref={containerRef}>
+                                {messages.map(object =>
+                                    <ChatBubble message={object} />)}
+                            </div>
+                            <div className="messageButton">
+                                <form onSubmit={createMessage} className="messageForm">
+                                    <input id="inputArea" type="text" value={msg} onChange={(e) => setMsg(e.target.value)} placeholder="Let's chat!" />
+                                    <input src={send} type="image" className='input-button' alt="Send"/>
+                                </form>
+                            </div>        
+                    </div>
+                }
+
+            </section>
+                
+
         </div>
 
     );
