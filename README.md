@@ -17,10 +17,9 @@ This is a simple chat application built with React and Firebase Firestore. It al
 - JavaScript: Programming language used for client-side logic.
 
 ## Setup
-
+```bash
 1. Clone the repository:
 
-```bash
 git clone https://github.com/your-username/chat-application.git
 
 2. Install dependencies:
