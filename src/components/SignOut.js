@@ -5,9 +5,9 @@ import logout from '../images/logout.png';
 
 function SignOut() {
     return auth.currentUser && (
-        <div className = "signOutWrapper">
+        <div className = "signOutWrapper" onClick={() => auth.signOut()}>
             <p>logout</p>
-            <img src = {logout} alt ="" className='sign-out' onClick={() => auth.signOut()} />
+            <img src = {logout} alt ="" className='sign-out' />
         </div>
     )
 }
