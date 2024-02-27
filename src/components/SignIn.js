@@ -14,9 +14,11 @@ function SignIn(){
 
     return (
     
-        <div className ="signInDiv">
-          <button className="sign-in" onClick={signInWithGoogle}>Sign in with Google</button>
-          <p>Press this to sign In if you dare</p>
+        <div className ="signInDivWrapper">
+          <div className ="signInDiv">
+            <button className="sign-in" onClick={signInWithGoogle}>Sign in with Google</button>
+            <p>Press this to sign In if you dare</p>
+          </div>
         </div>
       )
 

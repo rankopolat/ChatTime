@@ -1,6 +1,7 @@
 body{
-    background: rgb(65, 65, 65);
+    background-color: black;
 }
+
 
 ::-webkit-scrollbar {
     width: 8px;
@@ -148,13 +149,25 @@ body{
   }
 
 /* Sign in CSS */
-.signInDiv{
+.signInDivWrapper{
     display: flex;
     align-items: center;
     justify-content: center;
     height:100vh;
     width: 100%;
+    background-color: black;
+   
+}
+
+.signInDiv{
     flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30%;
+    width: 15%;
+    background-color: white;
+    border-radius: 10px;
 }
 
 .signInDiv p {
